@@ -8,6 +8,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .membership-dot { display:inline-block; width:.55em; height:.55em; border-radius:50%; margin-right:.35em; vertical-align:middle; background:#888; }
+    .membership-dot.membership-active  { background:#4caf50; }
+    .membership-dot.membership-ending  { background:#ff9800; }
+    .membership-dot.membership-past    { background:#888; }
+    .membership-tag.membership-is-past { opacity:.55; }
+  </style>
   
   <meta name="google-site-verification" content="chL-XVolm1SuAvXFdi4GrWiDTAlDh8zo74V44r8aD-M" />
 
@@ -85,7 +92,8 @@
           <span class="affil-tag">Jožef Stefan Institute — E8 Knowledge Technologies</span>
           <span class="affil-tag">MPŠ PhD Fellow</span>
           <span class="affil-tag">CLASSLA / CLARIN Slovenia</span>
-          <span class="affil-tag">Member, HFD (Croatian Philological Society)</span>
+          <span class="affil-tag">HFD (Cro Philol Soc) member</span>
+          <span class="affil-tag membership-tag" data-membership-expiry="2027-07-31"><span class="membership-dot"></span>ISCA Member</span>
         </div>
       </div>
     </section>
@@ -521,7 +529,7 @@
           <p class="pub-title">Dataset for Primary Stress Identification in Croatian and Related Languages and Dialects</p>
           <p class="pub-authors">Nikola Ljubešić, Peter Rupnik, <strong class="accent">Ivan Porupski</strong>, Nejc Robida, Mirna Potočnjak</p>
           <div class="pub-actions">
-            <a href="https://www.clarin.si/repository/xmlui/handle/11356/1833" target="_blank" rel="noopener" class="pub-link">CLARIN.SI</a>
+            <a href="https://www.clarin.si/repository/xmlui/handle/11356/2038" target="_blank" rel="noopener" class="pub-link">CLARIN.SI</a>
             <button class="cite-btn" onclick="toggleCite(this)">BibTeX</button>
           </div>
           <div class="cite-block" hidden>
@@ -532,8 +540,7 @@
             Porupski, Ivan and Robida, Nejc and Poto{\v{c}}njak, Mirna},
   year   = {2025},
   note   = {Slovenian language resource repository CLARIN.SI},
-  url    = {https://www.clarin.si/repository/xmlui/handle/11356/1833}
-  % ⚠ Handle / URL needs to be checked
+  url    = {https://www.clarin.si/repository/xmlui/handle/11356/2038}
 }</pre>
           </div>
         </div>
@@ -550,22 +557,22 @@
         <div class="conf-card conf-major">
           <span class="conf-year">2026</span>
           <strong>InterSpeech 2026</strong>
-          <span class="conf-loc">paper accepted</span>
+          <span class="conf-loc">Sydney, Australia · first author</span>
         </div>
         <div class="conf-card conf-major">
           <span class="conf-year">2026</span>
           <strong>LREC-COLING 2026</strong>
-          <span class="conf-loc">Palma, Spain</span>
+          <span class="conf-loc">Palma, Spain · first author</span>
         </div>
         <div class="conf-card conf-major">
           <span class="conf-year">2025</span>
           <strong>InterSpeech 2025</strong>
-          <span class="conf-loc">Rotterdam, Netherlands</span>
+          <span class="conf-loc">Rotterdam, Netherlands · co-author</span>
         </div>
         <div class="conf-card conf-major">
           <span class="conf-year">2025</span>
           <strong>ACL 2025</strong>
-          <span class="conf-loc">Vienna, Austria</span>
+          <span class="conf-loc">Vienna, Austria · co-author</span>
         </div>
       </div>
 
@@ -574,7 +581,7 @@
         <div class="conf-card">
           <span class="conf-year">2026</span>
           <strong>JTDH 2026</strong>
-          <span class="conf-loc">Ljubljana, Slovenia · paper accepted</span>
+          <span class="conf-loc">Ljubljana, Slovenia · first author, paper presented</span>
         </div>
         <div class="conf-card">
           <span class="conf-year">2026</span>
@@ -584,7 +591,7 @@
         <div class="conf-card">
           <span class="conf-year">2025</span>
           <strong>HDPL 2025</strong>
-          <span class="conf-loc">Zagreb, Croatia</span>
+          <span class="conf-loc">Zagreb, Croatia · project presented (ParlaSpeech)</span>
         </div>
         <div class="conf-card">
           <span class="conf-year">2025</span>
@@ -674,9 +681,16 @@
       <h3 class="subsection-title">Employment</h3>
       <div class="timeline">
         <div class="timeline-item">
-          <div class="timeline-period">Jan 2025 –</div>
+          <div class="timeline-period">Oct 2025 –</div>
           <div class="timeline-body">
-            <strong>Research Assistant</strong>
+            <strong>Research Assistant &amp; PhD Fellow</strong>
+            <span class="tl-place">Jožef Stefan Institute, Dept. of Knowledge Technologies (E8), Ljubljana</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Jan – Oct 2025</div>
+          <div class="timeline-body">
+            <strong>Professional Associate</strong>
             <span class="tl-place">Jožef Stefan Institute, Dept. of Knowledge Technologies (E8), Ljubljana</span>
           </div>
         </div>
@@ -770,6 +784,26 @@
     // Email: assembled at runtime so no plaintext address or "mailto:" sits in the page source.
     // The visible text uses a full-width "＠" (U+FF20) so it reads clearly to humans but
     // dodges the ASCII-"@" regexes most address harvesters rely on.
+    (function () {
+      var today = new Date();
+      var warn = 90 * 24 * 60 * 60 * 1000;
+      var affil = document.querySelector('.affil-row');
+      document.querySelectorAll('.membership-tag').forEach(function (tag) {
+        var expiry = new Date(tag.dataset.membershipExpiry);
+        var dot = tag.querySelector('.membership-dot');
+        var remaining = expiry - today;
+        if (remaining < 0) {
+          dot.classList.add('membership-past');
+          tag.classList.add('membership-is-past');
+          if (affil) affil.appendChild(tag);
+        } else if (remaining < warn) {
+          dot.classList.add('membership-ending');
+        } else {
+          dot.classList.add('membership-active');
+        }
+      });
+    })();
+
     (function () {
       const user = 'ivan.porupski';
       const domain = 'ijs.si';

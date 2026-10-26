@@ -1,0 +1,162 @@
+% Ivan Porupski — Academic CV
+% Compile with pdfLaTeX (Overleaf default)
+\documentclass[10pt, a4paper]{article}
+
+\usepackage[a4paper, top=1.8cm, bottom=1.8cm, left=2cm, right=2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage[hidelinks, colorlinks=false]{hyperref}
+\usepackage{array}
+
+\definecolor{accent}{RGB}{25, 70, 150}
+
+\titleformat{\section}
+  {\normalsize\bfseries\color{accent}}{}{0em}{}
+  [\vspace{-5pt}\textcolor{accent}{\rule{\linewidth}{0.5pt}}\vspace{2pt}]
+\titlespacing*{\section}{0pt}{10pt}{4pt}
+
+\setlist[itemize]{noitemsep, topsep=1pt, leftmargin=1.4em}
+
+\pagestyle{empty}
+
+% Column widths for two-column entries
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcommand{\entry}[2]{#1 & #2 \\[2pt]}
+
+\begin{document}
+
+% ── HEADER ────────────────────────────────────────────────────────────────────
+\begin{center}
+  {\LARGE\bfseries Ivan Porupski}\\[5pt]
+  {\normalsize Speech Scientist \& Corpus Phonetician}\\[3pt]
+  {\small
+    Jožef Stefan Institute, Dept.\ of Knowledge Technologies (E8) · Ljubljana, Slovenia\\[2pt]
+    \href{mailto:ivan.porupski@ijs.si}{ivan.porupski@ijs.si} \quad|\quad
+    \href{https://github.com/porupski}{github.com/porupski} \quad|\quad
+    \href{https://sicris.izum.si/public/rsr.aspx?lang=eng&id=60262}{SICRIS profile}
+  }
+\end{center}
+
+\vspace{4pt}
+
+% ── RESEARCH INTERESTS ────────────────────────────────────────────────────────
+\section{Research Interests}
+Acoustic phonetics, prosody and primary stress identification, disfluency and paralinguistic
+feature modelling, speech transformer fine-tuning and cross-lingual transfer, spoken corpus
+construction and annotation at scale (Slavic languages).
+
+% ── EMPLOYMENT ────────────────────────────────────────────────────────────────
+\section{Employment}
+\begin{tabular}{@{} P{3cm} P{13cm} @{}}
+  \entry{Oct 2025 –}
+        {\textbf{Research Assistant \& PhD Fellow} — Jožef Stefan Institute, E8 Knowledge Technologies, Ljubljana}
+  \entry{Jan–Oct 2025}
+        {\textbf{Professional Associate} — Jožef Stefan Institute, E8 Knowledge Technologies, Ljubljana}
+  \entry{Feb–Jul 2024}
+        {\textbf{Student Teaching Assistant (Demonstrator)} — Faculty of Humanities \& Social
+         Sciences (FFZG), University of Zagreb}
+\end{tabular}
+
+% ── EDUCATION ─────────────────────────────────────────────────────────────────
+\section{Education}
+\begin{tabular}{@{} P{3cm} P{13cm} @{}}
+  \entry{2022–2024}
+        {\textbf{MA, Phonetics \& Linguistics} — University of Zagreb, Croatia}
+  \entry{2019–2022}
+        {\textbf{BA, Phonetics \& Comparative Literature} — University of Zagreb, Croatia}
+  \entry{2016–2017}
+        {Propedeuse, Applied Chemistry (Chemie B) — HZ University of Applied Sciences,
+         Vlissingen, Netherlands}
+  \entry{2010–2014}
+        {High School Diploma, Chemical Technology — Prirodoslovna škola Vladimira Preloga,
+         Zagreb}
+\end{tabular}
+
+% ── PUBLICATIONS ──────────────────────────────────────────────────────────────
+\section{Publications}
+
+\textbf{Accepted / In Press}
+\begin{itemize}
+  \item \textbf{Porupski, I.}, Dropuljić, B., Ljubešić, N. (2026).
+        Umm\ldots\ With Transformers? Insights from Filled Pause Use across Four Slavic
+        Parliaments. \textit{Proc.\ Interspeech 2026}, Sydney.
+
+  \item \textbf{Porupski, I.}, Ljubešić, N. (2026).
+        Past the Rapids: Downstream Research on ParlaSpeech.
+        \textit{CLARIN Annual Conference 2026}.
+
+  \item \textbf{Porupski, I.}, Ljubešić, N. (2026).
+        Opinionated, Hesitant and Stressed: Three Studies of How Politicians Speak in Four
+        Slavic Parliaments. \textit{JTDH 2026}, Ljubljana.
+\end{itemize}
+
+\textbf{Published (selected)}
+\begin{itemize}
+  \item Ljubešić, N., Rupnik, P., \textbf{Porupski, I.}, Kuzman Pungeršek, T. (2026).
+        ParlaSpeech 3.0: Richly Annotated Spoken Parliamentary Corpora of Croatian, Czech,
+        Polish, and Serbian. \textit{LREC-COLING 2026}, Palma.
+        \href{https://arxiv.org/abs/2511.01619}{arXiv:2511.01619}
+
+  \item Ljubešić, N., \textbf{Porupski, I.}, Rupnik, P. (2025).
+        Identifying Primary Stress Across Related Languages and Dialects with
+        Transformer-based Speech Encoder Models.
+        \textit{Proc.\ Interspeech 2025}, pp.\ 5768–5772.
+        \href{https://arxiv.org/abs/2505.24571}{arXiv:2505.24571}
+
+  \item Ljubešić, N., \textbf{Porupski, I.}, Rupnik, P. (2025).
+        Identifying Filled Pauses in Speech Across South and West Slavic Languages.
+        \textit{Proc.\ SlavNLP @ ACL 2025}, pp.\ 1–8, Vienna.
+
+  \item Kuzman Pungeršek, T., Rupnik, P., \textbf{Porupski, I.}, Dinić, V., Ljubešić, N.
+        (2026). State of the Art in Text Classification for South Slavic Languages:
+        Fine-Tuning or Prompting? \textit{LLMs4SSH @ LREC 2026}.
+        \href{https://arxiv.org/abs/2511.07989}{arXiv:2511.07989}
+\end{itemize}
+
+% ── RESEARCH PROJECTS ─────────────────────────────────────────────────────────
+\section{Research Projects}
+\begin{tabular}{@{} P{3cm} P{13cm} @{}}
+  \entry{2026 – \hfill\textit{active}}
+        {\textbf{EPIC-SI} — Early parent–infant communication corpus (J6-70222 / ARIS)}
+  \entry{2025 – \hfill\textit{active}}
+        {\textbf{Gravitacija / LLM4DH} — Large language models for digital humanities}
+  \entry{2025 \hfill\textit{active}}
+        {\textbf{CLARIN} — Infrastructure programme, CLARIN.SI / CLARIN ERIC (I0-E004)}
+  \entry{–2025 \hfill\textit{ended}}
+        {\textbf{MEZZANINE} — Multimodal \& multilingual parliamentary speech analysis}
+\end{tabular}
+
+% ── SKILLS ────────────────────────────────────────────────────────────────────
+\section{Skills}
+\begin{tabular}{@{} P{3.8cm} P{12.2cm} @{}}
+  \textit{Speech science} &
+    Acoustic analysis \& feature extraction, prosody, primary stress, filled pause
+    detection, Praat, Audacity \\[2pt]
+  \textit{ML \& data science} &
+    Speech transformer fine-tuning, HuggingFace ecosystem, SVM, cross-lingual evaluation,
+    statistical analysis \\[2pt]
+  \textit{Corpus engineering} &
+    Spoken corpus bootstrapping from recordings, forced alignment, annotation layer design,
+    RTTM/TRS formats \\[2pt]
+  \textit{Programming} & Python, Praat scripting, KiCad, ESP-IDF \\[2pt]
+  \textit{Languages} & Croatian (native), English C1 — IELTS 8.0 (2016) \\
+\end{tabular}
+
+% ── MEMBERSHIPS & AFFILIATIONS ────────────────────────────────────────────────
+\section{Memberships \& Affiliations}
+\begin{itemize}
+  \item ISCA (International Speech Communication Association) — member since Aug 2025
+  \item HFD (Croatian Philological Society / Hrvatsko filološko društvo) — member
+  \item CLASSLA / CLARIN Slovenia
+  \item MPŠ PhD Fellow — Jožef Stefan International Postgraduate School
+\end{itemize}
+
+\vfill
+{\small\color{gray} \raggedleft October 2026}
+
+\end{document}
